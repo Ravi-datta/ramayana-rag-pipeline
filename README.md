@@ -95,21 +95,6 @@ Install dependencies:
 
 pip install -r requirements.txt
 
-## Environment Variables
-
-Create a local .env file from .env.example.
-
-Required variables:
-
-DEEPSEEK_API_KEY=
-DEEPSEEK_BASE_URL=https://api.deepseek.com
-DEEPSEEK_MODEL=deepseek-chat
-DEEPSEEK_TEMPERATURE=0.1
-DEEPSEEK_MAX_RETRIES=4
-DEEPSEEK_TIMEOUT_SECONDS=90
-
-Do not commit .env.
-
 ## Input Files
 
 Place the source PDF here:
@@ -175,23 +160,3 @@ Chapter-level summary with Kanda, page range, question count, and chunk count.
 validation_report.json
 
 Machine-readable quality report for parsing, translation, chunking, and metadata checks.
-
-## Security Practices
-
-No API keys are committed.
-
-The .env file is ignored.
-
-Raw PDFs are ignored.
-
-Intermediate extracted and translated files are ignored.
-
-Final processed outputs are intended to be committed.
-
-## Limitations
-
-The pipeline depends on the quality of extractable text from the Telugu PDF.
-
-If PDF text extraction is poor, parser warnings and validation failures should be reviewed before running full translation.
-
-OCR is not enabled by default and should only be considered for pages with no extractable text.
