@@ -17,7 +17,6 @@ KANDA_RANGES = [
 
 
 SARGA_LINE_RE = re.compile(r"^\s*[\d,\s]+సర్గలు\s*$")
-CHAPTER_TITLE_RE = re.compile(r"అధ్యాయ")
 
 
 def get_kanda_for_chapter(chapter_number: int) -> tuple[str, int]:
@@ -42,11 +41,18 @@ def normalize_chapter_id(kanda_english: str, chapter_number: int) -> str:
 
 
 def find_pdf_page_for_printed_page(
-    pages: list[dict[str, Any]], printed_page_number: str
+    pages: list[dict[str, Any]],
+    printed_page_number: str,
+    min_pdf_page_index: int = 0,
 ) -> int | None:
     for page in pages:
+        pdf_page_index = int(page["pdf_page_index"])
+
+        if pdf_page_index < min_pdf_page_index:
+            continue
+
         if str(page.get("printed_page_number")) == str(printed_page_number):
-            return int(page["pdf_page_index"])
+            return pdf_page_index
 
     return None
 
@@ -56,10 +62,12 @@ def build_chapters_from_toc(
 ) -> list[dict[str, Any]]:
     chapters: list[dict[str, Any]] = []
 
-    page_lookup = {
-        int(page["pdf_page_index"]): page
-        for page in pages
-    }
+    page_lookup = {int(page["pdf_page_index"]): page for page in pages}
+
+    # Real chapter content starts after the front matter.
+    content_start_pdf_page = 7
+
+    previous_start_pdf_page = content_start_pdf_page
 
     for idx, entry in enumerate(toc_entries):
         chapter_number = int(entry["chapter_number"])
@@ -72,32 +80,48 @@ def build_chapters_from_toc(
             else None
         )
 
+        parser_warnings: list[str] = []
+
         start_pdf_page = (
-            find_pdf_page_for_printed_page(pages, start_printed)
+            find_pdf_page_for_printed_page(
+                pages=pages,
+                printed_page_number=start_printed,
+                min_pdf_page_index=previous_start_pdf_page,
+            )
             if start_printed
             else None
         )
-        next_pdf_page = (
-            find_pdf_page_for_printed_page(pages, next_printed)
-            if next_printed
-            else None
-        )
-
-        parser_warnings: list[str] = []
 
         if start_pdf_page is None:
             parser_warnings.append(
                 f"Could not map TOC printed page {start_printed} to PDF page."
             )
-            continue
+            start_pdf_page = previous_start_pdf_page
+
+        next_pdf_page = (
+            find_pdf_page_for_printed_page(
+                pages=pages,
+                printed_page_number=next_printed,
+                min_pdf_page_index=start_pdf_page,
+            )
+            if next_printed
+            else None
+        )
 
         if next_pdf_page is None:
-            # Last chapter runs until end of document.
             end_pdf_page_exclusive = max(page_lookup) + 1
         else:
-            end_pdf_page_exclusive = next_pdf_page
+            end_pdf_page_exclusive = next_pdf_page + 1
+
+        if end_pdf_page_exclusive < start_pdf_page:
+            parser_warnings.append(
+                f"Invalid page range: start={start_pdf_page}, end={end_pdf_page_exclusive}."
+            )
+            end_pdf_page_exclusive = start_pdf_page + 1
 
         source_pdf_pages = list(range(start_pdf_page, end_pdf_page_exclusive))
+
+        previous_start_pdf_page = start_pdf_page
 
         page_texts = []
         printed_page_numbers = []
