@@ -11,6 +11,7 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
+from ramayana_rag.chunking.chunk_builder import build_chunks_file, chunk_counts_by_type
 from ramayana_rag.entities.entity_resolver import normalize_entities_file
 from ramayana_rag.translation.chapter_translator import ChapterTranslator, TranslationRunError
 
@@ -81,6 +82,16 @@ def main() -> int:
     print(f"Entity normalization complete: {len(normalization.chapters)} chapter(s).")
     print("Normalized output: data/intermediate/chapters_english_normalized.json")
     print("Entity audit: data/intermediate/entity_normalization_audit.json")
+
+    chunk_result = build_chunks_file(
+        input_path=ROOT / "data/intermediate/chapters_english_normalized.json",
+        output_dir=ROOT / args.output_dir,
+    )
+    print(f"Chunk generation complete: {len(chunk_result.chunks)} chunk(s).")
+    print(f"Chunk counts by type: {chunk_counts_by_type(chunk_result.chunks)}")
+    print("Chunks JSONL: data/processed/final_chunks.jsonl")
+    print("Chunks JSON: data/processed/final_chunks.json")
+    print("Chapter index: data/processed/chapter_index.csv")
 
     return 0
 
