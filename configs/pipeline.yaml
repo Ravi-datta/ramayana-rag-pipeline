@@ -1,0 +1,36 @@
+pipeline:
+  version: "1.0.0"
+  document_title: "Sri Ramayanamu - Prashnavali"
+  source_file: "ramayana.pdf"
+  language_original: "Telugu"
+  language_output: "English"
+
+paths:
+  raw_pdf: "data/raw/ramayana.pdf"
+  extracted_pages: "data/extracted/pages.jsonl"
+  cleaned_pages: "data/extracted/pages_clean.jsonl"
+  chapters_telugu: "data/intermediate/chapters_telugu.json"
+  translated_chapters_dir: "data/intermediate/translated_chapters"
+  chapters_english: "data/intermediate/chapters_english.json"
+  translation_audit: "data/intermediate/translation_audit.jsonl"
+  final_chunks_jsonl: "data/processed/final_chunks.jsonl"
+  final_chunks_json: "data/processed/final_chunks.json"
+  chapter_index_csv: "data/processed/chapter_index.csv"
+  validation_report: "data/processed/validation_report.json"
+  preview_markdown: "data/processed/final_chunks_preview.md"
+
+expected:
+  total_chapters: 99
+  approximate_questions: 495
+  total_pdf_pages_approx: 248
+
+deepseek:
+  model_env: "DEEPSEEK_MODEL"
+  temperature_env: "DEEPSEEK_TEMPERATURE"
+  max_retries_env: "DEEPSEEK_MAX_RETRIES"
+  timeout_seconds_env: "DEEPSEEK_TIMEOUT_SECONDS"
+
+chunking:
+  ideal_min_words: 350
+  ideal_max_words: 750
+  hard_max_words: 1100

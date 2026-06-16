@@ -1,0 +1,33 @@
+﻿kandas:
+  "బాల కాండము": "Bala Kanda"
+  "అయోధ్య కాండము": "Ayodhya Kanda"
+  "అరణ్య కాండము": "Aranya Kanda"
+  "కిష్కింధ కాండము": "Kishkindha Kanda"
+  "సుందర కాండము": "Sundara Kanda"
+  "యుద్ధ కాండము": "Yuddha Kanda"
+
+kanda_ranges:
+  Bala Kanda:
+    start_chapter: 1
+    end_chapter: 13
+    order: 1
+  Ayodhya Kanda:
+    start_chapter: 14
+    end_chapter: 32
+    order: 2
+  Aranya Kanda:
+    start_chapter: 33
+    end_chapter: 46
+    order: 3
+  Kishkindha Kanda:
+    start_chapter: 47
+    end_chapter: 58
+    order: 4
+  Sundara Kanda:
+    start_chapter: 59
+    end_chapter: 73
+    order: 5
+  Yuddha Kanda:
+    start_chapter: 74
+    end_chapter: 99
+    order: 6

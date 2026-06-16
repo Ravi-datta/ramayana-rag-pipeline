@@ -1,0 +1,17 @@
+﻿[project]
+name = "ramayana-rag-pipeline"
+version = "1.0.0"
+description = "Production-style Telugu Ramayana PDF to English RAG chunk preparation pipeline using DeepSeek-only translation."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Ravi Datta Rachuri" }
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

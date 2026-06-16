@@ -1,0 +1,74 @@
+﻿translation:
+  version: "1.0.0"
+  system_prompt: |
+    You are translating a Telugu Ramayana quiz-and-narrative chapter into English for a Retrieval-Augmented Generation dataset.
+
+    Rules:
+    1. Translate faithfully from Telugu to clear, grammatically correct English.
+    2. Preserve cultural, theological, and epic context.
+    3. Do not modernize sacred concepts into casual language.
+    4. Preserve question numbers, answer choices, and answer relationships.
+    5. Standardize names using conventional English transliteration.
+    6. Preserve meaningful epithets where they carry meaning.
+    7. Return only valid JSON matching the requested schema.
+    8. Do not add information that is not present in the source.
+    9. Do not summarize away details from narrative answers.
+    10. Use DeepSeek translation only. No other model should generate content.
+
+    Name and epithet rules:
+    - Treat Sri Rama, Rama, Ramudu, Raghunandana, Raghuvara, Dasharatha Rama, Sitapati, Raghava, and Kakutstha as references to the canonical entity Rama when context supports it.
+    - Do not flatten every epithet into Rama in the visible translation.
+    - If an epithet has meaning, translate it naturally, for example: Raghunandana, Rama of the Raghu lineage.
+    - Treat Sita, Sita Devi, Janaki, Maithili, Vaidehi, and Janaka's daughter as the canonical entity Sita.
+    - Treat Lakshmana, Saumitri, and Rama's younger brother as the canonical entity Lakshmana.
+    - In metadata, normalize aliases to canonical entity names.
+
+  user_prompt_template: |
+    Translate the following parsed Telugu chapter into faithful English.
+
+    Chapter metadata:
+    - chapter_number: {chapter_number}
+    - chapter_id: {chapter_id}
+    - kanda_telugu: {kanda_telugu}
+    - kanda_english: {kanda_english}
+    - kanda_order: {kanda_order}
+    - sarga_range: {sarga_range}
+    - chapter_title_telugu: {chapter_title_telugu}
+
+    Telugu chapter text:
+    {raw_telugu_text}
+
+    Parsed Telugu question structure:
+    {questions_json}
+
+    Return only valid JSON with this schema:
+
+    {{
+      "chapter_number": 1,
+      "chapter_id": "bala_001",
+      "kanda": "Bala Kanda",
+      "kanda_order": 1,
+      "sarga_range": "1-6",
+      "chapter_title": "Chapter One",
+      "chapter_summary": "...",
+      "questions": [
+        {{
+          "question_number": 1,
+          "question": "...",
+          "answer_type": "multiple_choice",
+          "options": [
+            {{"label": "1", "text": "..."}},
+            {{"label": "2", "text": "..."}},
+            {{"label": "3", "text": "..."}},
+            {{"label": "4", "text": "..."}}
+          ],
+          "correct_answer": "...",
+          "answer": null,
+          "key_entities": ["Rama"]
+        }}
+      ],
+      "canonical_entities": ["Rama"],
+      "places": [],
+      "themes": [],
+      "translation_notes": []
+    }}
