@@ -14,6 +14,7 @@ if str(SRC) not in sys.path:
 from ramayana_rag.chunking.chunk_builder import build_chunks_file, chunk_counts_by_type
 from ramayana_rag.entities.entity_resolver import normalize_entities_file
 from ramayana_rag.translation.chapter_translator import ChapterTranslator, TranslationRunError
+from ramayana_rag.validation.reports import build_markdown_preview, write_validation_report
 
 
 def parse_args() -> argparse.Namespace:
@@ -92,6 +93,23 @@ def main() -> int:
     print("Chunks JSONL: data/processed/final_chunks.jsonl")
     print("Chunks JSON: data/processed/final_chunks.json")
     print("Chapter index: data/processed/chapter_index.csv")
+
+    output_dir = ROOT / args.output_dir
+    validation_report = write_validation_report(
+        output_path=output_dir / "validation_report.json",
+        chunks_json_path=output_dir / "final_chunks.json",
+        chunks_jsonl_path=output_dir / "final_chunks.jsonl",
+        chapter_index_path=output_dir / "chapter_index.csv",
+    )
+    print(f"Validation report complete with {len(validation_report['warnings'])} warning(s).")
+    print("Validation report: data/processed/validation_report.json")
+
+    preview = build_markdown_preview(
+        validation_report_path=output_dir / "validation_report.json",
+        output_path=output_dir / "final_chunks_preview.md",
+    )
+    print(f"Markdown preview complete: {len(preview)} characters.")
+    print("Preview: data/processed/final_chunks_preview.md")
 
     return 0
 
