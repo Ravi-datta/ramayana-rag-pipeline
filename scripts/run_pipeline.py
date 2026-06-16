@@ -11,6 +11,7 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
+from ramayana_rag.entities.entity_resolver import normalize_entities_file
 from ramayana_rag.translation.chapter_translator import ChapterTranslator, TranslationRunError
 
 
@@ -70,6 +71,16 @@ def main() -> int:
     print(f"Loaded from cache: {cached}")
     print("Combined output: data/intermediate/chapters_english.json")
     print("Audit log: data/intermediate/translation_audit.jsonl")
+
+    normalization = normalize_entities_file(
+        input_path=ROOT / "data/intermediate/chapters_english.json",
+        output_path=ROOT / "data/intermediate/chapters_english_normalized.json",
+        aliases_path=ROOT / "configs/entity_aliases.yaml",
+        audit_output_path=ROOT / "data/intermediate/entity_normalization_audit.json",
+    )
+    print(f"Entity normalization complete: {len(normalization.chapters)} chapter(s).")
+    print("Normalized output: data/intermediate/chapters_english_normalized.json")
+    print("Entity audit: data/intermediate/entity_normalization_audit.json")
 
     return 0
 

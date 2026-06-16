@@ -1,45 +1,334 @@
 entities:
   Rama:
-    aliases:
-      - Sri Rama
-      - Rama
-      - Ramudu
-      - Raghunandana
-      - Raghuvara
-      - Dasharatha Rama
-      - Sitapati
-      - Raghava
-      - Kakutstha
-
+    category: primary
+    aliases: [Rama, Sri Rama, Shri Rama, Ramudu, Raghava, Raghu Rama, Raghurama, Raghunandana, Raghuvara, Dasharatha Rama, Kakutstha, Sitapati, శ్రీరాముడు, రాముడు, రఘురాముడు, రఘునందనుడు]
   Sita:
-    aliases:
-      - Sita
-      - Sita Devi
-      - Janaki
-      - Maithili
-      - Vaidehi
-      - Janaka's daughter
-
+    category: primary
+    aliases: [Sita, Sita Devi, Janaki, Maithili, Vaidehi, Janaka's daughter, సీత, సీతాదేవి, జానకి, మైథిలి, వైదేహి]
   Lakshmana:
-    aliases:
-      - Lakshmana
-      - Saumitri
-      - Rama's younger brother
-
-  Vishvamitra:
-    aliases:
-      - Vishvamitra
-      - Kaushika
-
+    category: primary
+    aliases: [Lakshmana, Lakshman, Saumitri, Rama's younger brother, లక్ష్మణుడు, సౌమిత్రి]
   Hanuman:
-    aliases:
-      - Hanuman
-      - Anjaneya
-      - Maruti
-      - son of Vayu
-
+    category: primary
+    aliases: [Hanuman, Hanuma, Anjaneya, Maruti, son of Vayu, Vayuputra, హనుమంతుడు, ఆంజనేయుడు, మారుతి]
   Ravana:
-    aliases:
-      - Ravana
-      - Lord of Lanka
-      - Dashakantha
+    category: rakshasa
+    aliases: [Ravana, Dashakantha, Lord of Lanka, రావణుడు, దశకంఠుడు, లంకేశుడు]
+  Bharata:
+    category: primary
+    aliases: [Bharata, Bharat, Kaikeyi's son, భరతుడు]
+  Shatrughna:
+    category: primary
+    aliases: [Shatrughna, Shatrugna, శత్రుఘ్నుడు]
+  Dasharatha:
+    category: primary
+    aliases: [Dasharatha, Dasaratha, King Dasharatha, Dasharatha Maharaja, దశరథుడు, దశరథ మహారాజు]
+  Kausalya:
+    category: primary
+    aliases: [Kausalya, Kousalya]
+  Kaikeyi:
+    category: primary
+    aliases: [Kaikeyi, Kaikei]
+  Sumitra:
+    category: primary
+    aliases: [Sumitra]
+  Janaka:
+    category: primary
+    aliases: [Janaka, King Janaka]
+
+  Valmiki:
+    category: sage
+    aliases: [Valmiki, Valmiki Maharshi, Maharshi Valmiki]
+  Narada:
+    category: sage
+    aliases: [Narada, Narada Maharshi, Maharshi Narada]
+  Vasishta:
+    category: sage
+    aliases: [Vasishta, Vashishta, Vasistha, వసిష్టుడు, వశిష్టుడు]
+  Vishvamitra:
+    category: sage
+    aliases: [Vishvamitra, Viswamitra, Kaushika, Koushika, విశ్వామిత్రుడు, కౌశికుడు]
+  Bharadwaja:
+    category: sage
+    aliases: [Bharadwaja, Bharadwaja Maharshi]
+  Agastya:
+    category: sage
+    aliases: [Agastya, Agastya Maharshi]
+  Atri:
+    category: sage
+    aliases: [Atri, Atri Maharshi]
+  Gautama:
+    category: sage
+    aliases: [Gautama, Gautama Maharshi]
+  Rishyashringa:
+    category: sage
+    aliases: [Rishyashringa, Rishyasringa, Rishya Shringa]
+  Shatananda:
+    category: sage
+    aliases: [Shatananda, Satananda]
+  Jabali:
+    category: sage
+    aliases: [Jabali]
+  Markandeya:
+    category: sage
+    aliases: [Markandeya]
+
+  Narayana:
+    category: deity
+    aliases: [Narayana, Lord Narayana, Srimannarayana]
+  Vishnu:
+    category: deity
+    aliases: [Vishnu, Lord Vishnu]
+  Brahma:
+    category: deity
+    aliases: [Brahma, Lord Brahma, Four-faced Brahma, Chaturmukha Brahma]
+  Shiva:
+    category: deity
+    aliases: [Shiva, Lord Shiva, Mahadeva]
+  Indra:
+    category: deity
+    aliases: [Indra, Lord Indra]
+  Agni:
+    category: deity
+    aliases: [Agni, Fire god]
+  Vayu:
+    category: deity
+    aliases: [Vayu, Wind god]
+  Varuna:
+    category: deity
+    aliases: [Varuna]
+  Kubera:
+    category: deity
+    aliases: [Kubera]
+  Yama:
+    category: deity
+    aliases: [Yama]
+  Garuda:
+    category: deity
+    aliases: [Garuda]
+  Parvati:
+    category: deity
+    aliases: [Parvati]
+
+  Kusha:
+    category: supporting
+    aliases: [Kusha, Kusa]
+  Lava:
+    category: supporting
+    aliases: [Lava]
+  Sumantra:
+    category: supporting
+    aliases: [Sumantra]
+  Yudhajit:
+    category: supporting
+    aliases: [Yudhajit]
+  Mandara:
+    category: supporting
+    aliases: [Mandara, Manthara]
+  Guha:
+    category: supporting
+    aliases: [Guha]
+  Shanta:
+    category: supporting
+    aliases: [Shanta]
+  Romapada:
+    category: supporting
+    aliases: [Romapada]
+  Parashurama:
+    category: supporting
+    aliases: [Parashurama, Parasurama]
+  Urmila:
+    category: supporting
+    aliases: [Urmila]
+  Mandavi:
+    category: supporting
+    aliases: [Mandavi]
+  Shrutakirti:
+    category: supporting
+    aliases: [Shrutakirti, Srutakirti]
+  Kushadhvaja:
+    category: supporting
+    aliases: [Kushadhvaja]
+  Trishanku:
+    category: supporting
+    aliases: [Trishanku]
+  Ambarisha:
+    category: supporting
+    aliases: [Ambarisha]
+  Shunahshepa:
+    category: supporting
+    aliases: [Shunahshepa, Sunahshepa]
+  Menaka:
+    category: supporting
+    aliases: [Menaka]
+  Ahalya:
+    category: supporting
+    aliases: [Ahalya]
+  Shabari:
+    category: supporting
+    aliases: [Shabari]
+  Jatayu:
+    category: supporting
+    aliases: [Jatayu, జటాయువు]
+  Sampati:
+    category: supporting
+    aliases: [Sampati]
+  Mainaka:
+    category: supporting
+    aliases: [Mainaka]
+  Surasa:
+    category: supporting
+    aliases: [Surasa]
+
+  Surpanakha:
+    category: rakshasa
+    aliases: [Surpanakha, Shurpanakha]
+  Khara:
+    category: rakshasa
+    aliases: [Khara]
+  Dushana:
+    category: rakshasa
+    aliases: [Dushana]
+  Trishira:
+    category: rakshasa
+    aliases: [Trishira, Trisiras]
+  Maricha:
+    category: rakshasa
+    aliases: [Maricha, Mareecha]
+  Subahu:
+    category: rakshasa
+    aliases: [Subahu]
+  Tataka:
+    category: rakshasa
+    aliases: [Tataka, Thataka]
+  Kabandha:
+    category: rakshasa
+    aliases: [Kabandha]
+  Viradha:
+    category: rakshasa
+    aliases: [Viradha]
+  Simhika:
+    category: rakshasa
+    aliases: [Simhika]
+  Trijata:
+    category: rakshasa
+    aliases: [Trijata]
+  Akshayakumara:
+    category: rakshasa
+    aliases: [Akshayakumara, Aksha Kumara]
+  Vibhishana:
+    category: rakshasa
+    aliases: [Vibhishana, Vibheeshana, విభీషణుడు]
+  Indrajit:
+    category: rakshasa
+    aliases: [Indrajit, Meghanada, ఇంద్రజిత్తు, మేఘనాదుడు]
+  Kumbhakarna:
+    category: rakshasa
+    aliases: [Kumbhakarna]
+  Mandodari:
+    category: rakshasa
+    aliases: [Mandodari]
+  Prahasta:
+    category: rakshasa
+    aliases: [Prahasta]
+  Atikaya:
+    category: rakshasa
+    aliases: [Atikaya]
+  Mahodara:
+    category: rakshasa
+    aliases: [Mahodara]
+  Mahaparshva:
+    category: rakshasa
+    aliases: [Mahaparshva]
+  Virupaksha:
+    category: rakshasa
+    aliases: [Virupaksha]
+  Nikumbha:
+    category: rakshasa
+    aliases: [Nikumbha]
+  Kumbha:
+    category: rakshasa
+    aliases: [Kumbha]
+
+  Sugriva:
+    category: vanara
+    aliases: [Sugriva, సుగ్రీవుడు]
+  Vali:
+    category: vanara
+    aliases: [Vali, Bali, వాలి]
+  Angada:
+    category: vanara
+    aliases: [Angada]
+  Jambavan:
+    category: vanara
+    aliases: [Jambavan, Jambavanta, జాంబవంతుడు]
+  Tara:
+    category: vanara
+    aliases: [Tara]
+  Nala:
+    category: vanara
+    aliases: [Nala]
+  Nila:
+    category: vanara
+    aliases: [Nila, Neela]
+  Sushena:
+    category: vanara
+    aliases: [Sushena]
+
+  Ayodhya:
+    category: place
+    aliases: [Ayodhya, Ayodhya city]
+  Kosala:
+    category: place
+    aliases: [Kosala, Kosala kingdom]
+  Mithila:
+    category: place
+    aliases: [Mithila]
+  Lanka:
+    category: place
+    aliases: [Lanka]
+  Dandaka Forest:
+    category: place
+    aliases: [Dandaka Forest, Dandaka]
+  Chitrakuta:
+    category: place
+    aliases: [Chitrakuta, Chitrakoot]
+  Panchavati:
+    category: place
+    aliases: [Panchavati]
+  Kishkindha:
+    category: place
+    aliases: [Kishkindha]
+  Rishyamuka:
+    category: place
+    aliases: [Rishyamuka, Rishyamukha]
+  Ashoka Grove:
+    category: place
+    aliases: [Ashoka Grove, Ashokavana, Ashoka Vana]
+  Ganga:
+    category: place
+    aliases: [Ganga, Ganga River, Ganges]
+  Yamuna:
+    category: place
+    aliases: [Yamuna, Yamuna River]
+  Sarayu:
+    category: place
+    aliases: [Sarayu, Sarayu River]
+  Godavari:
+    category: place
+    aliases: [Godavari, Godavari River]
+  Tamasa:
+    category: place
+    aliases: [Tamasa, Tamasa River]
+  Prayaga:
+    category: place
+    aliases: [Prayaga, Prayag]
+  Shringaverapura:
+    category: place
+    aliases: [Shringaverapura, Sringaverapura]
+  Himalaya:
+    category: place
+    aliases: [Himalaya, Himalayas]
+  Kailasa:
+    category: place
+    aliases: [Kailasa, Mount Kailasa]

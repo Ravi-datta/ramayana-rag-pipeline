@@ -1,17 +1,20 @@
-﻿[project]
+[build-system]
+requires = ["setuptools>=69.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
 name = "ramayana-rag-pipeline"
 version = "1.0.0"
-description = "Production-style Telugu Ramayana PDF to English RAG chunk preparation pipeline using DeepSeek-only translation."
-readme = "README.md"
-requires-python = ">=3.10"
-authors = [
-  { name = "Ravi Datta Rachuri" }
-]
+description = "Production-style Telugu Ramayana PDF to English RAG chunk pipeline using DeepSeek-only translation."
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py310"
 
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-pythonpath = ["src"]
+[tool.ruff.lint]
+select = ["E", "F", "I"]
